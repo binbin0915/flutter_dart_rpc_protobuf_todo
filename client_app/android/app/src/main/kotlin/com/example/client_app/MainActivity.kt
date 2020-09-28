@@ -1,4 +1,4 @@
-package com.example.flutter_dart_rpc_protobuf_todo
+package com.example.client_app
 
 import io.flutter.embedding.android.FlutterActivity
 
