@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package counter;
+
+service Counter{
+    rpc GetCount(Empty) returns (Count){}
+    rpc SubscribeCount(Empty) returns (stream Count){}
+    rpc IncrementCount(Count)returns(Empty){}
+}
+//https://developers.google.com/protocol-buffers/docs/proto3
+message Count{
+    int32 count = 1;
+}
+
+message Empty{}
