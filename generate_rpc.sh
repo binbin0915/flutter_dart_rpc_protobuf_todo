@@ -1,0 +1,1 @@
+protoc -I proto/ proto/counter.proto --dart_out=grpc:server_app/lib/src/generated --dart_out=grpc:client_app/lib/src/generated
