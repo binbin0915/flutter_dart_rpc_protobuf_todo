@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:grpc/grpc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../generated/counter.pb.dart';
@@ -14,17 +16,20 @@ class CounterService extends CounterServiceBase {
 
   @override
   Future<Count> getCount(ServiceCall call, Empty request) {
+    log('get count request recieved');
     return Future.value(Count()..count = _count);
   }
 
   @override
   Future<Empty> incrementCount(ServiceCall call, Count request) {
+    log('incrementing count by: ${request.count}');
     count = request.count;
     return Future.value(Empty());
   }
 
   @override
   Stream<Count> subscribeCount(ServiceCall call, Empty request) {
+    log('wants to subscribe to count');
     return _counterSubject.stream.map((event) => Count()..count = event);
   }
 }
